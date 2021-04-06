@@ -1,1 +1,3 @@
 
+```shell
+sudo fdisk -l
