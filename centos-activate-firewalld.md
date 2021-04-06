@@ -22,3 +22,9 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/firewalld.servi
 > sudo systemctl start firewalld
 
 ```
+
+```
+> sudo firewall-cmd --permanent --zone=trusted --change-interface=docker0
+> sudo firewall-cmd --permanent --zone=trusted --add-port=4243/tcp
+> sudo firewall-cmd --reload
+```
