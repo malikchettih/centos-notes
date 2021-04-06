@@ -15,7 +15,7 @@ export no_proxy=$NO_PROXY
 # Yum Proxy Setting
 
 ```
-sudo vim /etc/yum.conf
+sudo vi /etc/yum.conf
 
 proxy=http://150.151.144.119:3128
 ```
