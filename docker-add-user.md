@@ -20,3 +20,9 @@ passwd: all authentication tokens updated successfully.
 > sudo usermod -aG docker docker-admin
 
 ```
+
+```shell
+> sudo gpasswd -a docker-admin wheel
+[sudo] password for micloud:
+Adding user docker-admin to group wheel
+```
