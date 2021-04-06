@@ -1,5 +1,7 @@
 # Docker - Create a logical volume and XFS file system
 
+- https://github.com/ibm-cloud-architecture/refarch-privatecloud/blob/master/icp-on-rhel/create-lvm-xfs.md
+
 ```shell
 > sudo pvcreate /dev/sdb2
   Physical volume "/dev/sdb2" successfully created.
