@@ -496,10 +496,49 @@ Complete!
 ```
 
 ```
-> sudo certbot certonly --non-interactive --email info@FR1SLPSKTP00325.misys.global.ad \
-  --preferred-challenges http --standalone --agree-tos --renew-by-default \
-  --webroot-path /srv/ssl/vsftpd-certificats -d FR1SLPSKTP00325.misys.global.ad -d FR1SLPSKTP00325.misys.global.ad --dry-run
+> sudo openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -keyout /srv/ssl/vsftpd-certificats/vsftpd.pem -out /srv/ssl/vsftpd-certificats/vsftpd.pem
+
+[sudo] password for micloud:
+Generating a 4096 bit RSA private key
+.............++
+................................++
+writing new private key to '/srv/ssl/vsftpd-certificats/vsftpd.pem'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:FR
+State or Province Name (full name) []:Ile-de-France
+Locality Name (eg, city) [Default City]:Paris
+Organization Name (eg, company) [Default Company Ltd]:KTP
+Organizational Unit Name (eg, section) []:Finastra
+Common Name (eg, your name or your server's hostname) []:FR1SLPSKTP00325.misys.global.ad
+Email Address []:info@FR1SLPSKTP00325.misys.global.ad
+
 ```
 
 ```
+> sudo vi /etc/vsftpd/vsftpd.conf
+
+rsa_cert_file=/srv/ssl/vsftpd-certificats/vsftpd.pem
+rsa_private_key_file=/srv/ssl/vsftpd-certificats/vsftpd.pem
+ssl_enable=YES
+allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+require_ssl_reuse=NO
+ssl_ciphers=HIGH
+
 ```
+
+```
+> sudo systemctl restart vsftpd
+```
+
