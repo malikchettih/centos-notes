@@ -491,4 +491,15 @@ Complete!
 ```
 
 ```
+> sudo mkdir -pv -m 0770 /srv/ssl/vsftpd-certificats
+
+```
+
+```
+> sudo certbot certonly --non-interactive --email info@FR1SLPSKTP00325.misys.global.ad \
+  --preferred-challenges http --standalone --agree-tos --renew-by-default \
+  --webroot-path /srv/ssl/vsftpd-certificats -d FR1SLPSKTP00325.misys.global.ad -d FR1SLPSKTP00325.misys.global.ad --dry-run
+```
+
+```
 ```
