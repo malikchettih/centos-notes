@@ -29,3 +29,16 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/firewalld.servi
 > sudo firewall-cmd --zone=public --add-masquerade --permanent
 > sudo firewall-cmd --reload
 ```
+
+https://www.it-connect.fr/centos-7-utilisation-et-configuration-de-firewalld/
+
+```
+> sudo ls -all /usr/lib/firewalld/services
+> firewall-cmd --get-services
+> firewall-cmd --zone=public --add-service=http
+
+> firewall-cmd --zone=public --add-port=1521/tcp
+> firewall-cmd --list-ports 
+
+
+```
